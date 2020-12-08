@@ -3,7 +3,7 @@
 var main = document.getElementById("main");
 var clock = document.getElementById("timer");
 var list = document.getElementById("answerbutton");
-
+var showCorrectAnswer = "";
 
 console.log("im connected")
 
@@ -72,7 +72,7 @@ var questions = [
 },
 ]
 
-var questionsIndex = 0
+var questionsIndex = (0)
 
 // Generate the questions //
 
@@ -100,12 +100,14 @@ function generateQuestions() {
     }
 }
 
+
+
 function tester() {
     console.log("click button")
 
     console.log(this.value)
    if (this.value === questions[questionsIndex].correct) 
-   {correct.textContent(correct)
+   {main.textContent.questions.correct;
        console.log("correct")
        
    } else {
