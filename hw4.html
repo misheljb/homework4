@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="javascript" href="./script.js">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
@@ -19,26 +20,29 @@
     <div class="container-fluid">
 
         <div class="card">
-            <h5 class="card-header">Featured</h5>
+            <h5 class="card-header">Javascript Fundamental Quiz</h5>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                <h5 id ="main" class="card-title"></h5>
+                <p class="card-text">
+                    <h3></h3> 
                 <div class="btn-group-vertical btn-group-lg">
-                    <button type="button" class="OptionA">1 </button>
-                    <button type="button" class="OptionB">2</button>
-                    <button type="button" class="OptionC">3</button>
+                    <button id = "answerbutton" type="button" class="buttongroup"> </button>
+                
                 </div>
                 </p>
             </div>
         </div>
     </div>
 
+    <div class="col-2">
+        <div id = "timer">
+            <button type="button" style="display: flex; align-content: center;" onclick="clearStorage()"></button>
+        </div>
+    </div>
 
 
 
-    <script type="text/javascript">
-
-    </script>
+    
 </body>
 
 </html>
