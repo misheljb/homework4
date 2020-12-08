@@ -1,7 +1,7 @@
 
 // Default varaibles
 var main = document.getElementById("main");
-var timer = document.getElementById("timer");
+var clock = document.getElementById("timer");
 var list = document.getElementById("answerbutton");
 
 
@@ -105,7 +105,7 @@ function tester() {
 
     console.log(this.value)
    if (this.value === questions[questionsIndex].correct) 
-   {
+   {correct.textContent(correct)
        console.log("correct")
        
    } else {
@@ -114,23 +114,33 @@ function tester() {
 }
 
 // Timer Function//
-
-function timer() {
-    counter= 60;
-    timer.textContent = counter;
-    if (counter < 0){
-        stopTimer();   
+function currentTimer () {
+    timeRem--;
+    timer.setAttribute("textContent", timeRem);
+    if (timeRem < 0) {
+        stopTimer();
+        userInfo();
+        timer.style.visibility = "hidden";
     }
-    
 }
 
-// Clear timer//
-function clearTimer() { 
-    clearInterval (holdtimer);
- }
+
+//stop timer//
+function stopTimer () {
+    clearInterval(holdTimer);
+}
+
+// Deduct time as penalty for incorrect answers
+function timePenalty() {
+    timeRem -= 5;
+}
+
+
+
+
 
  //Call function//
  generateQuestions();
 
- timer();
- 
+
+
