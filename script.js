@@ -1,9 +1,11 @@
+
+// Default varaibles
 var main = document.getElementById("main");
 var timer = document.getElementById("timer");
-var answerbutton = document.getElementById("answerbutton");
+var list = document.getElementById("answerbutton");
 
 
-
+console.log("im connected")
 
 //Set Question Variables
 
@@ -70,6 +72,7 @@ var questions = [
 },
 ]
 
+var questionsIndex = 0
 
 // Generate the questions //
 
@@ -77,24 +80,38 @@ function generateQuestions() {
     var askingQuestion = questions[questionsIndex];
     main.textContent = askingQuestion.question;
 
+    console.log("askingQuestion")
 
     for ( i = 0; i < askingQuestion.options.length; i++) {
-       var list = document.createElement("list");
-        answerbutton.setAttribute("list-index",i);
-
-
-        var button = document.createElement("button");
-        button.textContent = askingQuestion.options[i];
-
      
+    
+        var answerbutton = document.createElement("button");
+        answerbutton.textContent = askingQuestion.options[i];
+
+        answerbutton.setAttribute("value", askingQuestion.options[i]);
+
+        answerbutton.onclick = tester
 
       
-
+        list.appendChild(answerbutton)
         
+
+
     }
 }
 
+function tester() {
+    console.log("click button")
 
+    console.log(this.value)
+   if (this.value === questions[questionsIndex].correct) 
+   {
+       console.log("correct")
+       
+   } else {
+       
+   }
+}
 
 // Timer Function//
 
@@ -111,3 +128,9 @@ function timer() {
 function clearTimer() { 
     clearInterval (holdtimer);
  }
+
+ //Call function//
+ generateQuestions();
+
+ timer();
+ 
