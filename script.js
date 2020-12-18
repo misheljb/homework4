@@ -3,7 +3,12 @@
 var main = document.getElementById("main");
 var clock = document.getElementById("timer");
 var list = document.getElementById("answerbutton");
+var startButton = document.getElementById("start-btn");
+var submitButton = document.getElementById("submit");
 var showCorrectAnswer = "";
+var allUsers = [];
+var pastUsers = [];
+var userScore = 0;
 
 console.log("im connected")
 
@@ -74,6 +79,7 @@ var questions = [
 
 var questionsIndex = (0)
 
+
 // Generate the questions //
 
 function generateQuestions() {
@@ -95,6 +101,7 @@ function generateQuestions() {
       
         list.appendChild(answerbutton)
         
+        showCorrectAnswer = askingQuestion.correct;
 
 
     }
@@ -122,7 +129,7 @@ function currentTimer () {
     if (timeRem < 0) {
         stopTimer();
         userInfo();
-        timer.style.visibility = "hidden";
+        timer;
     }
 }
 
@@ -134,15 +141,75 @@ function stopTimer () {
 
 // Deduct time as penalty for incorrect answers
 function timePenalty() {
-    timeRem -= 5;
+    timeRem =- 5;
 }
 
 
 
 
+function tester() {
+    console.log("click button");
+
+    console.log(this.value);
+   if (this.value === questions[questionsIndex].correct) 
+   {main.textContent.questions.correct
+       console.log("correct");
+       ++userScore;
+       console.log("userScore");
+       questionsIndex++;
+   };
+       
+       if (questionsIndex < 6) {
+           generateQuestions();
+       
+   } 
+        else {
+            timer 
+                stopTimer();
+                userInfo();
+
+   };
+    }
+
+else {
+    if(this.value != questions[questionsIndex].correct){
+        --userScore;
+    }
+    timePenalty();
+    questionsIndex++;
+    if(questionsIndex< 6) {
+        generateQuestions();
+    }
+    else {
+        timer 
+         stopTimer();
+         userInfo();
+    }
+};
 
  //Call function//
  generateQuestions();
 
 
+//Submission Variables//
+var label = document.createElement("label");
+var input = document.createElement("input");
+var submit = document.createElement("input");
 
+
+
+//Users Score and info//
+function userInput () {
+    main.textContent= ("You Scored :" + userScore + "Enter name below:");
+
+    setAttribute(label, ("userIntials"));
+    setAttribute(submit, ("submit", value));
+
+    $(form).append(userInput);
+
+};
+
+//local storage//
+function saveUsers (){
+    localStorage.setItem("totalUsers", JSON.stringify(totalUsers));
+};
