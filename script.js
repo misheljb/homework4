@@ -171,7 +171,7 @@ function tester() {
    };
     }
 
-else {
+
     if(this.value != questions[questionsIndex].correct){
         --userScore;
     }
@@ -185,7 +185,7 @@ else {
          stopTimer();
          userInfo();
     }
-};
+
 
  //Call function//
  generateQuestions();
